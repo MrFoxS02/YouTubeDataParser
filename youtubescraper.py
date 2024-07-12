@@ -49,7 +49,7 @@ class YoutubeScraper:
 
             for id,  video_url in enumerate(video_url_list[:len(video_url_list)-2]):
                 resp = requests.get(video_url)
-                soup = BeautifulSoup(resp.content, 'html.parser')
+                soup = BeautifulSoup(resp.content, 'html.parser', from_encoding='utf-8')
 
                 if id == 0:
                     chanel_name = soup.find("span", itemprop="author").next.next['content']
